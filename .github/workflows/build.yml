@@ -26,11 +26,11 @@ jobs:
         run: yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Build APK
-        working-directory: extracted_project
+        working-directory: extracted_project/nexa-native
         run: gradle assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: extracted_project/app/build/outputs/apk/debug/app-debug.apk
+          path: extracted_project/nexa-native/app/build/outputs/apk/debug/app-debug.apk
